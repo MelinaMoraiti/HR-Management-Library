@@ -1,0 +1,17 @@
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\bin\Debug\HRLibTest.dll
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\bin\Debug\HRLibTest.pdb
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\bin\Debug\HRLib.dll
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\bin\Debug\HRLib.pdb
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\obj\Debug\HRLibTest.csproj.AssemblyReference.cache
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\obj\Debug\HRLibTest.csproj.CoreCompileInputs.cache
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\obj\Debug\HRLibTest.csproj.CopyComplete
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\obj\Debug\HRLibTest.dll
+D:\Projects\Coding\HR-Lib\HRLib\HRLibTest\obj\Debug\HRLibTest.pdb
