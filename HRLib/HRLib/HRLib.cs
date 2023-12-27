@@ -80,16 +80,14 @@ namespace HRLib
                 return false;
             return true;
         }
+        //Assuming for simlpicity that greek Landline and Mobile phones start with 2 and 6 accordingly
         private bool IsLandlineGR(string phone)
         {
             return phone.Length == 10 && phone.StartsWith("2");
-
         }
-
         private bool IsMobileGR(string phone)
         {
             return phone.Length == 10 && phone.StartsWith("6");
-
         }
         public void CheckPhone(string Phone,ref int TypePhone, ref string InfoPhone)
         {
