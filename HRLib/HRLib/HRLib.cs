@@ -126,9 +126,9 @@ namespace HRLib
         }
         public void EncryptPassword(string Password, ref string EncryptedPW, int offset=5)
         {
-            if (string.IsNullOrEmpty(Password))
+            if (!ValidPassword(Password))
             {
-                throw new ArgumentException("Password cannot be null or empty.");
+                throw new ArgumentException("Invalid password. Please provide a valid password.");
             }
 
             StringBuilder encryptedPasswordBuilder = new StringBuilder();
