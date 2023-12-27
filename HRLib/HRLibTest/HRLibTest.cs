@@ -85,6 +85,39 @@ namespace HRLibTest
             if (failed) Assert.Fail();
         }
         [TestMethod]
+        public void TestCheckPhone()
+        {
+            HRLib.HRLib hrLib = new HRLib.HRLib();
+
+            object[,] testCases =
+                  {
+                { "2101234567", 0, "Metropolitan Area of Athens - Piraeus", "Valid Landline" },
+                { "6949876543", 1, "Unknown Mobile Company", "Valid Mobile" },
+                { "InvalidPhone", -1, null, "Invalid Phone" }
+            };
+            bool failed = false;
+
+            for (int i = 0; i < testCases.GetLength(0); i++)
+            {
+                int typePhone = 0;
+                string infoPhone = null;
+
+                try
+                {
+                    hrLib.CheckPhone((string)testCases[i, 0], ref typePhone, ref infoPhone);
+                    Assert.AreEqual((int)testCases[i, 1], typePhone, $"{testCases[i, 3]} - TypePhone mismatch");
+                    Assert.AreEqual(testCases[i, 2], infoPhone, $"{testCases[i, 3]} - InfoPhone mismatch");
+                }
+                catch (AssertFailedException e)
+                {
+                    failed = true;
+                    Console.WriteLine($"Failed Test Case {i + 1}: {testCases[i, 3]}. \n \t Reason: {e.Message}");
+                }
+            }
+
+            if (failed) Assert.Fail();
+        }
+        [TestMethod]
         public void TestInfoEmployee()
         {
             HRLib.HRLib hrLib = new HRLib.HRLib();
