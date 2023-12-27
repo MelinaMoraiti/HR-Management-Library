@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HRLib
 {
@@ -25,13 +21,9 @@ namespace HRLib
                 HiringDate = hiringDate;
             }
 
-            public Employee(string homePhone)
+            public Employee(string homePhone) : this()
             {
                 HomePhone = homePhone;
-                Name = null;
-                MobilePhone = null;
-                Birthday = default;
-                HiringDate = default;
             }
         }
 
