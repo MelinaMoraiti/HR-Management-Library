@@ -80,18 +80,36 @@ namespace HRLib
                 return false;
             return true;
         }
-        public void InfoEmployee(Employee EmpIX, ref int Age, ref int YearsOfExperience)
+        private bool IsLandlineGR(string phone)
         {
-            Age = DateTime.Now.Year - EmpIX.Birthday.Year;
-            YearsOfExperience = DateTime.Now.Year - EmpIX.HiringDate.Year;
+            return phone.Length == 10 && phone.StartsWith("2");
+
         }
 
-        private void CheckPhone(string Phone, ref int TypePhone, ref string InfoPhone)
+        private bool IsMobileGR(string phone)
         {
-            if (Phone.Substring(0, 2) == "21")
+            return phone.Length == 10 && phone.StartsWith("6");
+
+        }
+        public void CheckPhone(string Phone,ref int TypePhone, ref string InfoPhone)
+        {
+            // Remove any non-digit characters from the phone number
+            string cleanedPhone = new string(Phone.Where(char.IsDigit).ToArray());
+            // Check if the cleaned phone number is empty or null
+            if (string.IsNullOrEmpty(cleanedPhone))
+            {
+                TypePhone = -1; // Invalid phone number
+                InfoPhone = null;
+                return;
+            }
+            if(IsLandlineGR(cleanedPhone))
             {
                 TypePhone = 0;
-                InfoPhone = "21";
+
+            }
+            else if(IsMobileGR(cleanedPhone))
+            {
+                TypePhone = 1;
             }
             else
             {
@@ -99,7 +117,11 @@ namespace HRLib
                 InfoPhone = null;
             }
         }
-
+        public void InfoEmployee(Employee EmpIX, ref int Age, ref int YearsOfExperience)
+        {
+            Age = DateTime.Now.Year - EmpIX.Birthday.Year;
+            YearsOfExperience = DateTime.Now.Year - EmpIX.HiringDate.Year;
+        }
         public int LiveInAthens(Employee[] Empls)
         {
             int totalInAthens = 0;
