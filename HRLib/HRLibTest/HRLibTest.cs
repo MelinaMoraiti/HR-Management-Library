@@ -92,8 +92,13 @@ namespace HRLibTest
             object[,] testCases =
                   {
                 { "2101234567", 0, "Metropolitan Area of Athens - Piraeus", "Valid Landline" },
+                { "2900000000", 0, "Unknown Zone", "Valid Landline" },
                 { "6949876543", 1, "Unknown Mobile Company", "Valid Mobile" },
-                { "InvalidPhone", -1, null, "Invalid Phone" }
+                { "6971129873", 1, "Cosmote", "Valid Mobile" },
+                { "InvalidPhone", -1, null, "No Digits..." },
+                { "0123456789", -1, null, "Not valid phone" },
+                { "12345", -1, null, "Not 10 digits" },
+
             };
             bool failed = false;
 
