@@ -53,15 +53,15 @@ namespace HRLibTest
 
             object[,] testCases =
             {
-                {1, "ValidPassword123!", true, "Valid password with all requirements" },
+                {1, "ValidPassword!123", true, "Valid password with all requirements" },
                 {2, "Short123!", false, "Password is too short" },
-                {3, "NoUppercase123!", false, "Missing uppercase letter" },
-                {4, "noLowercase123!", false, "Missing lowercase letter" },
+                {3, "nouppercase123!", false, "Missing uppercase letter" },
+                {4, "NOLOWERCASE567!", false, "Missing lowercase letter" },
                 {5, "NoSymbol123", false, "Missing symbol" },
-                {6, "NoNumber!", false, "Missing number" },
-                {7, "Invalid@Pa$$word", false, "Contains non-Latin characters" },
+                {6, "NoNumb3r!", false, "Missing number at the end" },
+                {7, "Κωδικός", false, "Contains non-Latin characters" },
                 {8, "1StartsWithNumber", false, "Starts with a number" },
-                {9, "StartsWithCapitalEndsWithNumber5", true, "Valid password with all requirements" }
+                {9, "St@rtsW1thC4pitalEndsWithNumb3r5", true, "Valid password with all requirements" }
             };
 
             bool failed = false;
@@ -72,7 +72,7 @@ namespace HRLibTest
                 {
                     bool passwordIsValid = hrLib.ValidPassword((string)testCases[i, 1]);
 
-                    Assert.AreEqual((bool)testCases[i, 2], passwordIsValid, (string)testCases[i, 3]);
+                    Assert.AreEqual((bool)testCases[i, 2], passwordIsValid);
                 }
                 catch (Exception e)
                 {
