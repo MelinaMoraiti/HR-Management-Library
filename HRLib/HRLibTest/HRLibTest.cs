@@ -90,7 +90,7 @@ namespace HRLibTest
             HRLib.HRLib hrLib = new HRLib.HRLib();
 
             object[,] testCases =
-                  {
+            {
                 { "2101234567", 0, "Metropolitan Area of Athens - Piraeus", "Valid Landline" },
                 { "2900000000", 0, "Unknown Zone", "Valid Landline" },
                 { "6949876543", 1, "Unknown Mobile Company", "Valid Mobile" },

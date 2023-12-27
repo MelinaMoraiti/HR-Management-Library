@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace HRLib
@@ -118,6 +119,33 @@ namespace HRLib
                 case "698": return "Cosmote";
                 default: return "Unknown Mobile Company";
             }
+        }
+        public void EncryptPassword(string Password, ref string EncryptedPW, int offset=5)
+        {
+            if (string.IsNullOrEmpty(Password))
+            {
+                throw new ArgumentException("Password cannot be null or empty.");
+            }
+
+            StringBuilder encryptedPasswordBuilder = new StringBuilder();
+
+            foreach (char character in Password)
+            {
+                // Check if the character is within the ASCII range of printable characters
+                if (character >= 32 && character <= 126)
+                {
+                    // Encrypt the character using Caesar's Cipher with the specified offset
+                    char encryptedChar = (char)(((character - 32 + offset) % 95) + 32);
+                    encryptedPasswordBuilder.Append(encryptedChar);
+                }
+                else
+                {
+                    // If the character is not a printable ASCII character, leave it unchanged
+                    encryptedPasswordBuilder.Append(character);
+                }
+            }
+            // Set the result in the ref parameter
+            EncryptedPW = encryptedPasswordBuilder.ToString();
         }
         public void CheckPhone(string Phone,ref int TypePhone, ref string InfoPhone)
         {
