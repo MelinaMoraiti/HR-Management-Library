@@ -85,9 +85,39 @@ namespace HRLib
         {
             return phone.Length == 10 && phone.StartsWith("2");
         }
+        private string GetLandlineZone(string phone)
+        {
+            // assume the first two digits represent the zone.
+            string zonePrefix = phone.Substring(0, 2);
+            switch (zonePrefix)
+            {
+                case "21": return "Metropolitan Area of Athens - Piraeus";
+                case "22": return "Eastern Central Greece, Attica, Aegean Islands";
+                case "23": return "Central Macedonia";
+                case "24": return "Thessaly, Western Macedonia";
+                case "25": return "Thrace, Eastern Macedonia";
+                case "26": return "Epirus, Western Central Greece, Western Peloponnese, Ionian Islands";
+                case "27": return "Eastern Peloponnese, Kythira";
+                case "28": return "Crete";
+                default: return "Unknown Zone";
+            }
+        }
         private bool IsMobileGR(string phone)
         {
             return phone.Length == 10 && phone.StartsWith("6");
+        }
+        private string GetMobileCompany(string phone)
+        {
+            // assume the first three digits represent the mobile company.
+            string companyPrefix = phone.Substring(0, 3);
+            switch (companyPrefix)
+            {
+                case "693": return "Nova";
+                case "695": return "Vodafone Greece";
+                case "697": return "Cosmote";
+                case "698": return "Cosmote";
+                default: return "Unknown Mobile Company";
+            }
         }
         public void CheckPhone(string Phone,ref int TypePhone, ref string InfoPhone)
         {
@@ -103,11 +133,12 @@ namespace HRLib
             if(IsLandlineGR(cleanedPhone))
             {
                 TypePhone = 0;
-
+                InfoPhone = GetLandlineZone(cleanedPhone);
             }
             else if(IsMobileGR(cleanedPhone))
             {
                 TypePhone = 1;
+                InfoPhone = GetMobileCompany(cleanedPhone);
             }
             else
             {
