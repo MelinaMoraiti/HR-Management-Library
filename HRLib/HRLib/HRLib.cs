@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace HRLib
 {
@@ -10,7 +11,7 @@ namespace HRLib
             public string HomePhone;
             public string MobilePhone;
             public DateTime Birthday;
-            public DateTime HiringDate;
+            public DateTime HiringDate; 
 
             public Employee(string name, string homePhone, string mobilePhone, DateTime birthday, DateTime hiringDate)
             {
@@ -56,7 +57,28 @@ namespace HRLib
 
             return found;
         }
-
+        public bool ValidPassword(string password)
+        {
+            //Check that the password has at least 12 characters
+            if (password.Length < 12)
+                return false;
+            // Check for at least one lowercase letter 
+            if (!Regex.IsMatch(password, "[a-z]"))
+                return false;
+            // Check for at least one symbol
+            if (!Regex.IsMatch(password, @"[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]"))
+                return false;
+            // Check that all characters are Latin characters
+            if (!Regex.IsMatch(password, @"^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\-]+$"))
+                return false;
+            // Check that it starts with a capital letter
+            if (!char.IsUpper(password[0]))
+                return false;
+            // Check that it ends with a number
+            if (!char.IsDigit(password,password.Length-1))
+                return false;
+            return true;
+        }
         public void InfoEmployee(Employee EmpIX, ref int Age, ref int YearsOfExperience)
         {
             Age = DateTime.Now.Year - EmpIX.Birthday.Year;
