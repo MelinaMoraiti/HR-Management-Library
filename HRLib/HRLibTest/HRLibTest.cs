@@ -59,7 +59,7 @@ namespace HRLibTest
                 {4, "NOLOWERCASE567", false, "Missing lowercase letter" },
                 {5, "NoSymbol123", false, "Missing symbol" },
                 {6, "NoNumb3r!", false, "Missing number at the end" },
-                {7, "Κωδικός", false, "Contains non-Latin characters" },
+                {7, "PΚωδ!κ0ς1", false, "Contains non-Latin characters" },
                 {8, "1StartsWithNumber", false, "Starts with a number" },
                 {9, "St@rtsW1thC4pitalEndsWithNumb3r5", true, "Valid password with all requirements" }
             };
