@@ -1,3 +1,6 @@
 .vs/
 HRLib/obj/
 HRLibTest/obj/
+HRLib/bin/
+packages/
+TestResults/
