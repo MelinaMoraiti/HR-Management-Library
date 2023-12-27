@@ -61,6 +61,7 @@ namespace HRLibTest
                 {6, "NoNumb3r!", false, "Missing number at the end" },
                 {7, "PΚωδ!κ0ς1", false, "Contains non-Latin characters" },
                 {8, "1StartsWithNumber", false, "Starts with a number" },
+                {8, null, false, "Null password..." },
                 {9, "St@rtsW1thC4pitalEndsWithNumb3r5", true, "Valid password with all requirements" }
             };
 
@@ -90,33 +91,29 @@ namespace HRLibTest
             HRLib.HRLib hrLib = new HRLib.HRLib();
             object[,] testCases =
             {
-                { "Secret123", 0, "Metropolitan Area of Athens - Piraeus", "Valid Landline" },
-                { "sECur3P@ssw0rd!2", 0, "Unknown Zone", "Valid Landline" },
-                { "6949876543", 1, "Unknown Mobile Company", "Valid Mobile" },
-                { "6971129873", 1, "Cosmote", "Valid Mobile" },
-                { "InvalidPhone", -1, null, "No Digits..." },
-                { "0123456789", -1, null, "Not valid phone" },
-                { "12345", -1, null, "Not 10 digits" },
+               { "ValidPa$$word123", "[fqniUf))|twi678" },                       
+               { "St@rtsw1thC4pitalEndswithNumb3r5", "XyEwyx|6ymH9unyfqJsix|nymSzrg8w:" },  
+               { "Secur3tP4ssword!1", "Xjhzw8yU9xx|twi&6" }
             };
             bool failed = false;
 
             for (int i = 0; i < testCases.GetLength(0); i++)
             {
-                int typePhone = 0;
-                string infoPhone = null;
-
+                string password = (string)testCases[i, 0];
+                string expectedEncryptedPassword = (string)testCases[i, 1];
+                string encryptedPassword = null;
                 try
                 {
-                    hrLib.CheckPhone((string)testCases[i, 0], ref typePhone, ref infoPhone);
-                    Assert.AreEqual((int)testCases[i, 1], typePhone, $"{testCases[i, 3]} - TypePhone mismatch");
-                    Assert.AreEqual(testCases[i, 2], infoPhone, $"{testCases[i, 3]} - InfoPhone mismatch");
+                    hrLib.EncryptPassword(password, ref encryptedPassword);
+                    Assert.AreEqual(expectedEncryptedPassword, encryptedPassword, $"Test Case {i + 1} failed");
                 }
                 catch (AssertFailedException e)
                 {
                     failed = true;
-                    Console.WriteLine($"Failed Test Case {i + 1}: {testCases[i, 3]}. \n \t Reason: {e.Message}");
+                    Console.WriteLine($"Failed Test Case {i + 1}: {e.Message}");
                 }
             }
+
             if (failed) Assert.Fail();
         }
         [TestMethod]

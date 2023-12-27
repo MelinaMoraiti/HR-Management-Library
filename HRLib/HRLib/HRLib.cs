@@ -63,7 +63,7 @@ namespace HRLib
         {
             if (string.IsNullOrEmpty(Password))
             {
-                throw new ArgumentException("Password cannot be null or empty.");
+                return false;
             }
             //Check that the password has at least 12 characters
             if (Password.Length < 12)
@@ -135,25 +135,18 @@ namespace HRLib
 
             foreach (char character in Password)
             {
-                // Encrypt the character using Caesar's Cipher with the specified offset
-                char encryptedChar;
-
-                if (char.IsLetter(character))
+                // Check if the character is within the ASCII range of printable characters
+                if (character >= 32 && character <= 126)
                 {
-                    char baseChar = char.IsUpper(character) ? 'A' : 'a';
-                    encryptedChar = (char)(((character - baseChar + offset) % 26) + baseChar);
-                }
-                else if (char.IsDigit(character))
-                {
-                    encryptedChar = (char)(((character - '0' + offset) % 10) + '0');
+                    // Encrypt the character using Caesar's Cipher with the specified offset
+                    char encryptedChar = (char)(((character - 32 + offset) % 95) + 32);
+                    encryptedPasswordBuilder.Append(encryptedChar);
                 }
                 else
                 {
-                    // If the character is not a letter or digit, leave it unchanged
-                    encryptedChar = character;
+                    // If the character is not a printable ASCII character, leave it unchanged
+                    encryptedPasswordBuilder.Append(character);
                 }
-
-                encryptedPasswordBuilder.Append(encryptedChar);
             }
             // Set the result in the ref parameter
             EncryptedPW = encryptedPasswordBuilder.ToString();
