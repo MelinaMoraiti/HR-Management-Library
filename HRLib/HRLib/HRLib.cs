@@ -162,7 +162,7 @@ namespace HRLib
 
                 CheckPhone(employee.HomePhone, ref typePhone, ref infoPhone);
 
-                if (typePhone == 0 && infoPhone == "21")
+                if (typePhone == 0 && infoPhone == "Metropolitan Area of Athens - Piraeus")
                 {
                     totalInAthens++;
                 }
