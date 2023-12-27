@@ -59,25 +59,29 @@ namespace HRLib
 
             return found;
         }
-        public bool ValidPassword(string password)
+        public bool ValidPassword(string Password)
         {
+            if (string.IsNullOrEmpty(Password))
+            {
+                throw new ArgumentException("Password cannot be null or empty.");
+            }
             //Check that the password has at least 12 characters
-            if (password.Length < 12)
+            if (Password.Length < 12)
                 return false;
             // Check for at least one lowercase letter
-            if (!password.Any(char.IsLower))
+            if (!Password.Any(char.IsLower))
                 return false;
             // Check for at least one symbol
-            if (!password.Any(c => char.IsSymbol(c) || char.IsPunctuation(c)))
+            if (!Password.Any(c => char.IsSymbol(c) || char.IsPunctuation(c)))
                 return false;
             // Check that all characters are Latin characters
-            if (!password.All(c => char.IsLetterOrDigit(c) || char.IsSymbol(c) || char.IsPunctuation(c)))
+            if (!Password.All(c => char.IsLetterOrDigit(c) || char.IsSymbol(c) || char.IsPunctuation(c)))
                 return false;
             // Check that it starts with a capital letter
-            if (!char.IsUpper(password[0]))
+            if (!char.IsUpper(Password[0]))
                 return false;
             // Check that it ends with a number
-            if (!char.IsDigit(password[password.Length - 1]))
+            if (!char.IsDigit(Password[Password.Length - 1]))
                 return false;
             return true;
         }
