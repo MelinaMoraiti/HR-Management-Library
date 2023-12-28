@@ -131,7 +131,7 @@ namespace HRLib
                 case "26": return "Epirus, Western Central Greece, Western Peloponnese, Ionian Islands";
                 case "27": return "Eastern Peloponnese, Kythira";
                 case "28": return "Crete";
-                default: return "Unknown Zone";
+                default: return null;
             }
         }
         private bool IsMobileGR(string phone)
@@ -165,11 +165,13 @@ namespace HRLib
             }
             if(IsLandlineGR(cleanedPhone))
             {
-                TypePhone = 0;
                 InfoPhone = GetLandlineZone(cleanedPhone);
+                if (GetLandlineZone(cleanedPhone) != null) TypePhone = 0;
+                else TypePhone = -1;
             }
             else if(IsMobileGR(cleanedPhone))
             {
+                
                 TypePhone = 1;
                 InfoPhone = GetMobileCompany(cleanedPhone);
             }

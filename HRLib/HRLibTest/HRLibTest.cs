@@ -121,13 +121,13 @@ namespace HRLibTest
 
             object[,] testCases =
             {
-                { "2101234567", 0, "Metropolitan Area of Athens - Piraeus", "Valid Landline" },
-                { "2900000000", 0, "Unknown Zone", "Valid Landline" },
-                { "6949876543", 1, "Unknown Mobile Company", "Valid Mobile" },
-                { "6971129873", 1, "Cosmote", "Valid Mobile" },
-                { "InvalidPhone", -1, null, "No Digits..." },
-                { "0123456789", -1, null, "Not valid phone" },
-                { "12345", -1, null, "Not 10 digits" },
+                {1, "2101234567", 0, "Metropolitan Area of Athens - Piraeus", "Valid Landline" },
+                {2, "2900000000", -1, null, "Invalid Landline - Unknown Zone" },
+                {3, "6949876543", 1, "Unknown Mobile Company", "Valid Mobile" },
+                {4, "6971129873", 1, "Cosmote", "Valid Mobile" },
+                {5, "InvalidPhone", -1, null, "No Digits..." },
+                {6, "0123456789", -1, null, "Not valid phone" },
+                {7, "12345", -1, null, "Not 10 digits" },
 
             };
             bool failed = false;
@@ -139,14 +139,14 @@ namespace HRLibTest
 
                 try
                 {
-                    hrLib.CheckPhone((string)testCases[i, 0], ref typePhone, ref infoPhone);
-                    Assert.AreEqual((int)testCases[i, 1], typePhone, $"{testCases[i, 3]} - TypePhone mismatch");
-                    Assert.AreEqual(testCases[i, 2], infoPhone, $"{testCases[i, 3]} - InfoPhone mismatch");
+                    hrLib.CheckPhone((string)testCases[i, 1], ref typePhone, ref infoPhone);
+                    Assert.AreEqual((int)testCases[i, 2], typePhone, $"{testCases[i, 4]} - TypePhone mismatch");
+                    Assert.AreEqual(testCases[i, 3], infoPhone, $"{testCases[i, 4]} - InfoPhone mismatch");
                 }
                 catch (AssertFailedException e)
                 {
                     failed = true;
-                    Console.WriteLine($"Failed Test Case {i + 1}: {testCases[i, 3]}. \n \t Reason: {e.Message}");
+                    Console.WriteLine("Failed Test Case {0}: {1} - {2} - {3}. \n \t Reason: {4} ", (int)testCases[i, 0], (string)testCases[i, 1], (int)testCases[i, 2], (string)testCases[i, 3], (string)testCases[i, 4], e.Message);
                 }
             }
 
