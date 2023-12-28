@@ -54,12 +54,12 @@ namespace HRLibTest
             object[,] testCases =
             {
                 {1, "ValidPa$$word123", true, "Valid password with all requirements" },
-                {2, "Short123", false, "Password is too short" },
-                {3, "nouppercase123!", false, "Missing uppercase letter" },
-                {4, "NOLOWERCASE567", false, "Missing lowercase letter" },
-                {5, "NoSymbol123", false, "Missing symbol" },
-                {6, "NoNumb3r!", false, "Missing number at the end" },
-                {7, "PΚωδ!κ0ς1", false, "Contains non-Latin characters" },
+                {2, "Short*123", false, "Password is too short" },
+                {3, "noupperc@se123", false, "Missing uppercase letter" },
+                {4, "NOLOWERCASE!567", false, "Missing lowercase letter" },
+                {5, "NoSymbol1234", false, "Missing symbol" },
+                {6, "NoooNuuumb3r!", false, "Missing number at the end" },
+                {7, "PΚωδ!κ0ςςςςςςς1", false, "Contains non-Latin characters" },
                 {8, "1StartsWithNumber", false, "Starts with a number" },
                 {8, null, false, "Null password..." },
                 {9, "St@rtsW1thC4pitalEndsWithNumb3r5", true, "Valid password with all requirements" }
