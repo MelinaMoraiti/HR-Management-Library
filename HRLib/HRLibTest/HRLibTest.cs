@@ -79,7 +79,7 @@ namespace HRLibTest
                 {
                     failed = true;
 
-                    Console.WriteLine("Failed Test Case {0}: {1} - {2}. \n \t Reason: {3} ", (int)testCases[i, 0], (string)testCases[i, 1], (bool)testCases[i, 2], e.Message);
+                    Console.WriteLine("Failed Test Case {0}: {1} - {2}. \n \t Reason: {3} ", (int)testCases[i, 0], (string)testCases[i, 1], (bool)testCases[i, 2], (string)testCases[i, 3], e.Message);
                 }
             }
 
@@ -93,7 +93,7 @@ namespace HRLibTest
             {
                {1, "ValidPa$$word123", "[fqniUf))|twi678" ,"Correct Encryption"},                       
                {2, "St@rtsw1thC4pitalEndswithNumb3r5", "XyEwyx|6ymH9unyfqJsix|nymSzrg8w:","Correct Encryption" },  
-               {3, "Secur3tP4ssword!1", "Xjhzw8yU9xx|twi&6","Correct Encryption" }
+               {3, "Secur3tP4ssword!1", "Xjhzw8yU9xx|twi&6","Correct Encryption" },
             };
             bool failed = false;
 
