@@ -85,6 +85,33 @@ namespace HRLib
                 return false;
             return true;
         }
+        public void EncryptPassword(string Password, ref string EncryptedPW, int offset = 5)
+        {
+            if (!ValidPassword(Password))
+            {
+                throw new ArgumentException("Invalid password. Please provide a valid password.");
+            }
+
+            StringBuilder encryptedPasswordBuilder = new StringBuilder();
+
+            foreach (char character in Password)
+            {
+                // Check if the character is within the ASCII range of printable characters
+                if (character >= 32 && character <= 126)
+                {
+                    // Encrypt the character using Caesar's Cipher with the specified offset
+                    char encryptedChar = (char)(((character - 32 + offset) % 95) + 32);
+                    encryptedPasswordBuilder.Append(encryptedChar);
+                }
+                else
+                {
+                    // If the character is not a printable ASCII character, leave it unchanged
+                    encryptedPasswordBuilder.Append(character);
+                }
+            }
+            // Set the result in the ref parameter
+            EncryptedPW = encryptedPasswordBuilder.ToString();
+        }
         //Assuming for simlpicity that greek Landline and Mobile phones start with 2 and 6 accordingly
         private bool IsLandlineGR(string phone)
         {
@@ -124,33 +151,7 @@ namespace HRLib
                 default: return "Unknown Mobile Company";
             }
         }
-        public void EncryptPassword(string Password, ref string EncryptedPW, int offset=5)
-        {
-            if (!ValidPassword(Password))
-            {
-                throw new ArgumentException("Invalid password. Please provide a valid password.");
-            }
 
-            StringBuilder encryptedPasswordBuilder = new StringBuilder();
-
-            foreach (char character in Password)
-            {
-                // Check if the character is within the ASCII range of printable characters
-                if (character >= 32 && character <= 126)
-                {
-                    // Encrypt the character using Caesar's Cipher with the specified offset
-                    char encryptedChar = (char)(((character - 32 + offset) % 95) + 32);
-                    encryptedPasswordBuilder.Append(encryptedChar);
-                }
-                else
-                {
-                    // If the character is not a printable ASCII character, leave it unchanged
-                    encryptedPasswordBuilder.Append(character);
-                }
-            }
-            // Set the result in the ref parameter
-            EncryptedPW = encryptedPasswordBuilder.ToString();
-        }
         public void CheckPhone(string Phone,ref int TypePhone, ref string InfoPhone)
         {
             // Remove any non-digit characters from the phone number
