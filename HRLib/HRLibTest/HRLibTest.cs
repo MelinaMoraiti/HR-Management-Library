@@ -91,26 +91,24 @@ namespace HRLibTest
             HRLib.HRLib hrLib = new HRLib.HRLib();
             object[,] testCases =
             {
-               { "ValidPa$$word123", "[fqniUf))|twi678" },                       
-               { "St@rtsw1thC4pitalEndswithNumb3r5", "XyEwyx|6ymH9unyfqJsix|nymSzrg8w:" },  
-               { "Secur3tP4ssword!1", "Xjhzw8yU9xx|twi&6" }
+               {1, "ValidPa$$word123", "[fqniUf))|twi678" ,"Correct Encryption"},                       
+               {2, "St@rtsw1thC4pitalEndswithNumb3r5", "XyEwyx|6ymH9unyfqJsix|nymSzrg8w:","Correct Encryption" },  
+               {3, "Secur3tP4ssword!1", "Xjhzw8yU9xx|twi&6","Correct Encryption" }
             };
             bool failed = false;
 
             for (int i = 0; i < testCases.GetLength(0); i++)
             {
-                string password = (string)testCases[i, 0];
-                string expectedEncryptedPassword = (string)testCases[i, 1];
                 string encryptedPassword = null;
                 try
                 {
-                    hrLib.EncryptPassword(password, ref encryptedPassword);
-                    Assert.AreEqual(expectedEncryptedPassword, encryptedPassword, $"Test Case {i + 1} failed");
+                    hrLib.EncryptPassword((string)testCases[i, 1], ref encryptedPassword);
+                    Assert.AreEqual((string)testCases[i, 2], encryptedPassword, $"Test Case {i + 1} failed - {(string)testCases[i, 3]}");
                 }
                 catch (AssertFailedException e)
                 {
                     failed = true;
-                    Console.WriteLine($"Failed Test Case {i + 1}: {e.Message}");
+                    Console.WriteLine($"Failed Test Case {i + 1}: {(string)testCases[i, 3]} - {e.Message}");
                 }
             }
 
