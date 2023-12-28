@@ -126,8 +126,9 @@ namespace HRLibTest
                 {3, "6949876543", 1, "Unknown Mobile Company", "Valid Mobile" },
                 {4, "6971129873", 1, "Cosmote", "Valid Mobile" },
                 {5, "InvalidPhone", -1, null, "No Digits..." },
-                {6, "0123456789", -1, null, "Not valid phone" },
+                {6, "1123456789", -1, null, "Invalid Phone - Starts With one" },
                 {7, "12345", -1, null, "Not 10 digits" },
+                {8, "2320123454", 0, "Central Macedonia", "Valid Landline" },
 
             };
             bool failed = false;
@@ -146,10 +147,9 @@ namespace HRLibTest
                 catch (AssertFailedException e)
                 {
                     failed = true;
-                    Console.WriteLine("Failed Test Case {0}: {1} - {2} - {3}. \n \t Reason: {4} ", (int)testCases[i, 0], (string)testCases[i, 1], (int)testCases[i, 2], (string)testCases[i, 3], (string)testCases[i, 4], e.Message);
+                    Console.WriteLine($"Failed Test Case {testCases[i, 0]}: {testCases[i, 4]} - {e.Message}");
                 }
             }
-
             if (failed) Assert.Fail();
         }
         [TestMethod]

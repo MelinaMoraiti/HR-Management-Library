@@ -75,8 +75,8 @@ namespace HRLib
             if (!Password.Any(c => char.IsSymbol(c) || char.IsPunctuation(c)))
                 return false;
             // Check that all characters are Latin characters
-            //if (!Password.All(c => c >= 0x0000 && c <= 0x007F))
-                //return false;
+            if (!Password.All(c => c >= 0x0000 && c <= 0x007F))
+                return false;
             // Check that it starts with a capital letter
             if (!char.IsUpper(Password[0]))
                 return false;
@@ -166,7 +166,7 @@ namespace HRLib
             if(IsLandlineGR(cleanedPhone))
             {
                 InfoPhone = GetLandlineZone(cleanedPhone);
-                if (GetLandlineZone(cleanedPhone) != null) TypePhone = 0;
+                if (InfoPhone != null) TypePhone = 0;
                 else TypePhone = -1;
             }
             else if(IsMobileGR(cleanedPhone))
