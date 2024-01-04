@@ -145,7 +145,7 @@ namespace HRLib
             switch (companyPrefix)
             {
                 case "690": return "Unknown Mobile Company";
-                case "691": return "Nova";
+                case "691": return "Unknown Mobile Company";
                 case "692": return "Unknown Mobile Company"; 
                 case "693": return "Nova";
                 case "694": return "Unknown Mobile Company"; 
