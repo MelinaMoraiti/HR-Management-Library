@@ -144,6 +144,7 @@ namespace HRLib
             string companyPrefix = phone.Substring(0, 3);
             switch (companyPrefix)
             {
+                case "690": return "Unknown Mobile Company";
                 case "691": return "Nova";
                 case "692": return "Unknown Mobile Company"; 
                 case "693": return "Nova";
