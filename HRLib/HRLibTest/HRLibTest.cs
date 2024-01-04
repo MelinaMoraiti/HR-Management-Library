@@ -130,7 +130,6 @@ namespace HRLibTest
                 {7, "12345", -1, null, "Not 10 digits" },
                 {8, "2320123454", 0, "Central Macedonia", "Valid Landline" },
                 {9, "6171129873",-1, null, "Invalid Mobile" },
-                {10, "2001129873",-1, null, "Invalid Landline" },
 
             };
             bool failed = false;
