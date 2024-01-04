@@ -144,16 +144,16 @@ namespace HRLib
             string companyPrefix = phone.Substring(0, 3);
             switch (companyPrefix)
             {
-                case "690": return "Unknown Mobile Company";
+                case "690": return "Nova";
                 case "691": return "Unknown Mobile Company";
                 case "692": return "Unknown Mobile Company"; 
                 case "693": return "Nova";
-                case "694": return "Unknown Mobile Company"; 
+                case "694": return "Vodafone Greece"; 
                 case "695": return "Vodafone Greece";
                 case "696": return "Unknown Mobile Company"; 
                 case "697": return "Cosmote";
                 case "698": return "Cosmote";
-                case "699": return "Unknown Mobile Company"; 
+                case "699": return "ACS Courier"; 
                 default: return null;
             }
         }

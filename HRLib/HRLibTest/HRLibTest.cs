@@ -123,12 +123,14 @@ namespace HRLibTest
             {
                 {1, "2101234567", 0, "Metropolitan Area of Athens - Piraeus", "Valid Landline" },
                 {2, "2900000000", -1, null, "Invalid Landline - Unknown Zone" },
-                {3, "6949876543", 1, "Unknown Mobile Company", "Valid Mobile" },
+                {3, "6969876543", 1, "Unknown Mobile Company", "Valid Mobile" },
                 {4, "6971129873", 1, "Cosmote", "Valid Mobile" },
                 {5, "InvalidPhone", -1, null, "No Digits..." },
                 {6, "1123456789", -1, null, "Invalid Phone - Starts With one" },
                 {7, "12345", -1, null, "Not 10 digits" },
                 {8, "2320123454", 0, "Central Macedonia", "Valid Landline" },
+                {9, "6171129873",-1, null, "Invalid Mobile" },
+                {10, "2001129873",-1, null, "Invalid Landline" },
 
             };
             bool failed = false;
