@@ -5,7 +5,7 @@ This repository contains the development of a C# DLL (Dynamic Link Library) name
 - [Key Features](#key-features)
 - [Testing Focus](#testing-focus)
 - [Getting Started](#getting-started)
-- 
+
 ## DLL Key Features 🚀
 1. **ValidName:**
    - Validates whether a given text corresponds to an employee's name.
@@ -36,7 +36,7 @@ This repository contains the development of a C# DLL (Dynamic Link Library) name
 ## Getting Started 🚀
 To use HRLib in your C# project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/yourusername/HRLib.git`
+1. Clone the repository: `git clone https://github.com/MelinaMoraiti/HRLib.git`
 2. Reference the HRLib.dll in your project.
 3. Explore the functions and methods provided in the library.
 
