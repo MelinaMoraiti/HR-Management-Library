@@ -41,9 +41,10 @@ To use HRLib in your C# project, follow these steps:
 3. Explore the functions and methods provided in the library.
 
 ## Running Tests
-To run the unit tests:
+Open the terminal and run:
 ```bash
 dotnet test
 ```
+OR Open the Test Explorer if using Visual Studio and run the tests.
 ## License 📄
 This project is licensed under the MIT License - see the LICENSE file for details.
