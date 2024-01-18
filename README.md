@@ -1,12 +1,14 @@
 # HRLib - HR Management Library for Company Personnel
 This repository contains the development of a C# DLL (Dynamic Link Library) named HRLib, designed for managing personnel within a company's Human Resources Information System. The library includes a set of functions and methods to handle various aspects of employee data.
 
-## Table of Contents
+## Table of Contents 📚
 - [Key Features](#key-features)
 - [Testing Focus](#testing-focus)
 - [Getting Started](#getting-started)
+- [Running Tests](#running-tests-)
+- [License](#license-)
 
-## DLL Key Features 🚀
+## DLL Key Features 🌟
 1. **ValidName:**
    - Validates whether a given text corresponds to an employee's name.
 
