@@ -13,7 +13,7 @@ namespace HRLib
             public string HomePhone;
             public string MobilePhone;
             public DateTime Birthday;
-            public DateTime HiringDate; 
+            public DateTime HiringDate;
 
             public Employee(string name, string homePhone, string mobilePhone, DateTime birthday, DateTime hiringDate)
             {
@@ -28,6 +28,12 @@ namespace HRLib
             {
                 HomePhone = homePhone;
             }
+
+            public Employee(DateTime birthday) : this()
+            {
+                Birthday = birthday;
+            }
+
         }
 
         private Employee[] Employees;

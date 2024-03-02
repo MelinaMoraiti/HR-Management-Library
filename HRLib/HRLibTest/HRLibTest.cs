@@ -18,6 +18,7 @@ namespace HRLibTest
             };
 
             HRLib.HRLib hrLib = new HRLib.HRLib(employees);
+            HRLib.HRLib emptyHrLib = new HRLib.HRLib();
 
             object[,] testCases =
             {
@@ -32,9 +33,18 @@ namespace HRLibTest
             {
                 try
                 {
-                    bool nameIsValid = hrLib.ValidName((string)testCases[i, 1]);
+                    if ((int)testCases[i, 0] != 4)
+                    {
+                        bool nameIsValid = hrLib.ValidName((string)testCases[i, 1]);
 
-                    Assert.AreEqual((bool)testCases[i, 2], nameIsValid);
+                        Assert.AreEqual((bool)testCases[i, 2], nameIsValid);
+                    }
+                    else
+                    {
+                        bool nameIsValid = emptyHrLib.ValidName((string)testCases[i, 1]);
+
+                        Assert.AreEqual((bool)testCases[i, 2], nameIsValid);
+                    }
                 }
                 catch (Exception e)
                 {
@@ -183,7 +193,7 @@ namespace HRLibTest
                 {
                     failed = true;
 
-                    Console.WriteLine("Failed Test Case {0}: {1} - {2}. \n \t Reason: {3} ", (int)testCases[i, 0], (string)testCases[i, 1], (bool)testCases[i, 2], e.Message);
+                    Console.WriteLine("Failed Test Case {0}: {1} - {2}", (int)testCases[i, 0], (string)testCases[i, 4], e.Message);
                 }
             }
 
@@ -195,23 +205,26 @@ namespace HRLibTest
         {
             HRLib.HRLib hrLib = new HRLib.HRLib();
 
-
-
             object[,] testCases =
             {
                 {
                     1,
-                    new[] {new HRLib.HRLib.Employee("210"), new HRLib.HRLib.Employee("220"), new HRLib.HRLib.Employee("210"), new HRLib.HRLib.Employee("220")},
+                    new[] {new HRLib.HRLib.Employee("2106262000"), new HRLib.HRLib.Employee("2106262000"), new HRLib.HRLib.Employee("2206262000"), new HRLib.HRLib.Employee("220")},
                     2, "Experience and alive years both correct"
                 },
                 {
                     2,
-                    new[] {new HRLib.HRLib.Employee("210"), new HRLib.HRLib.Employee("210"), new HRLib.HRLib.Employee("210"), new HRLib.HRLib.Employee("220")},
+                    new[] {new HRLib.HRLib.Employee("2106262000"), new HRLib.HRLib.Employee("2101111111"), new HRLib.HRLib.Employee("2106263111"), new HRLib.HRLib.Employee("220")},
                     3, "Experience and alive years both correct"
                 },
                 {
                     3,
-                    new[] {new HRLib.HRLib.Employee("220"), new HRLib.HRLib.Employee("220"), new HRLib.HRLib.Employee("220"), new HRLib.HRLib.Employee("220")},
+                    new[] {new HRLib.HRLib.Employee("2206262000"), new HRLib.HRLib.Employee("220"), new HRLib.HRLib.Employee("220"), new HRLib.HRLib.Employee("21000")},
+                    0, "Experience and alive years both correct"
+                },
+                {
+                    4,
+                    new[] {new HRLib.HRLib.Employee(new DateTime(2002, 5, 1, 8, 30, 52)), new HRLib.HRLib.Employee("220"), new HRLib.HRLib.Employee("220"), new HRLib.HRLib.Employee("21000")},
                     0, "Experience and alive years both correct"
                 },
             };
@@ -230,7 +243,7 @@ namespace HRLibTest
                 {
                     failed = true;
 
-                    Console.WriteLine("Failed Test Case {0}: {1} - {2}. \n \t Reason: {3} ", (int)testCases[i, 0], (string)testCases[i, 1], (bool)testCases[i, 2], e.Message);
+                    Console.WriteLine("Failed Test Case {0}: {1}. \n \t Reason: {2} ", (int)testCases[i, 0], (int)testCases[i, 2], e.Message);
                 }
             }
 
