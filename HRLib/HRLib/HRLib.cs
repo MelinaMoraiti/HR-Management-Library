@@ -106,7 +106,7 @@ namespace HRLib
                 if (character >= 32 && character <= 126)
                 {
                     // Encrypt the character using Caesar's Cipher with the specified offset
-                    char encryptedChar = (char)(((character - 32 + offset) % 95) + 32);
+                    char encryptedChar = (char)(((character - 32) % 95) + 32);
                     encryptedPasswordBuilder.Append(encryptedChar);
                 }
                 else
